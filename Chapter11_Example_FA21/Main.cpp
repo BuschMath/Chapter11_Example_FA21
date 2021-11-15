@@ -1,34 +1,67 @@
 #include <iostream>
-#include <string>
 
 using namespace std;
 
-enum gradeType { A, B, C, D, F };
+void functionI(int i_array[][3]);
 
-struct studentRecord
-{
-	string firstName;
-	string lastName;
-	string className;
-	gradeType examGrades[4];
-	gradeType finalGrade;
-};
+typedef double Array2D[2][3];			
+void functionD(Array2D d_array);
 
 int main()
 {
-	studentRecord classRecord[20];
+	int i_array[2][3];
 
-	classRecord[0].firstName = "John";
-	classRecord[0].lastName = "Doe";
-	classRecord[0].className = "Introduction to Statistics";
-	classRecord[0].finalGrade = B;
-
-	for (int i = 0; i < 4; i++)
+	for (int i = 0; i < 2; i++)
 	{
-		classRecord[0].examGrades[i] = B;
+		for (int j = 0; j < 3; j++)
+		{
+			i_array[i][j] = 0;
+		}
 	}
 
-	cout << classRecord[0].firstName + " " + classRecord[0].lastName << endl;
+	functionI(i_array);
+
+	Array2D d_array;
+
+	for (int i = 0; i < 2; i++)
+	{
+		for (int j = 0; j < 3; j++)
+		{
+			d_array[i][j] = 1;
+		}
+	}
+
+	functionD(d_array);
 
 	return 0;
+}
+
+void functionI(int i_array[][3])
+{
+	cout << "functionI:\n";
+
+	for (int i = 0; i < 2; i++)
+	{
+		for (int j = 0; j < 3; j++)
+		{
+			cout << i_array[i][j] << " ";
+		}
+		cout << endl;
+	}
+	cout << endl;
+}
+
+void functionD(Array2D d_array)
+{
+	cout << "functionD:\n";
+
+	for (int i = 0; i < 2; i++)
+	{
+		for (int j = 0; j < 3; j++)
+		{
+			cout << d_array[i][j] << " ";
+		}
+		cout << endl;
+	}
+	cout << endl;
 }
